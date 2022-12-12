@@ -31,3 +31,17 @@ func reshape(items []string, size int) [][]string {
 
 	return reshaped
 }
+
+type Queue[T any] struct {
+	q []T
+}
+
+func (q *Queue[T]) Push(v T) {
+	q.q = append(q.q, v)
+}
+
+func (q *Queue[T]) Pop() T {
+	res := q.q[0]
+	q.q = q.q[1:]
+	return res
+}
